@@ -1,0 +1,57 @@
+<%- include('partials/_header.ejs') %>
+
+  <div class="container">
+    <main>
+      <div class="py-3 text-center">
+        <h2>List Policies</h2>
+        <p class="lead">Below is the list of policies.</p>
+        <a href="/newpolicy" class="btn btn-lg btn-primary" type="button">New Policy</a>
+        <a href="/" class="btn btn-lg btn-danger" type="button">Back</a>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">System</th>
+              <th scope="col">Policies</th>
+              <th scope="col">Policy</th>
+              <th scope="col">Requirement</th>
+              <th scope="col">Value</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0;i<text.length; i++) {%>
+              <tr>
+                <td>
+                  <%= text[i].system%>
+                </td>
+                <td>
+                  <%= text[i].policies%>
+                </td>
+                <td>
+                  <%= text[i].policy%>
+                </td>
+                <td>
+                  <%= text[i].requirement%>
+                </td>
+                <td>
+                  <%= text[i].value%>
+                </td>
+                <td>
+                  <a href="/update/<%=text[i]._id%>" class=" btn border-shadow">
+                    <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                  </a>
+                  <a href="/delete/<%=text[i]._id%>" class="btn border-shadow">
+                    <span class="text-gradient"><i class="fas fa-times"></i></span>
+                  </a>
+                </td>
+              </tr>
+              <%}%>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+
+    <%- include('partials/_footer.ejs') %>
