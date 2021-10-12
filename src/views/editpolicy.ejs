@@ -76,6 +76,25 @@
           </div>
       </div>
 
+      <div class="col-sm-6">
+        <label for="scan" class="p-2 form-label">Scan command</label>
+        <input type="text" class="form-control" name="scan" id="scan" value="<%=text.scan%>"
+          placeholder="scan command ..." required>
+        <div class="invalid-feedback">
+          Please enter valid scan command.
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="remediate" class="p-2 form-label">Remediation command</label>
+        <input type="text" class="form-control" name="remediate" id="remediate" value="<%=text.remediate%>"
+          placeholder="Remediation command ..." required>
+        <div class="invalid-feedback">
+          Please enter valid Remediation command.
+        </div>
+      </div>
+
+
       <hr class="my-4">
 
       <div class="form-group">

@@ -19,6 +19,8 @@ const policySchema = new Schema({
     requirement: String,
     description: String,
     value: String,
+    scan: String,
+    remediate: String
 }, {
     timestamps: true
 }
