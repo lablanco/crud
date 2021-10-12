@@ -9,13 +9,19 @@
         <a href="/" class="btn btn-lg btn-danger" type="button">Back</a>
       </div>
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table id="table" data-toggle="table" data-height="460" data-pagination="true" data-search="true"
+          class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">System</th>
-              <th scope="col">Policies</th>
-              <th scope="col">Policy</th>
-              <th scope="col">Requirement</th>
+              <th data-field="system" data-sortable="true" data-sort-name="system" data-sort-order="desc" scope="col">
+                System
+              </th>
+              <th data-field="policies" data-sortable="true" data-sort-name="policies" data-sort-order="desc"
+                scope="col">Policies</th>
+              <th data-field="policy" data-sortable="true" data-sort-name="policy" data-sort-order="desc" scope="col">
+                Policy</th>
+              <th data-field="control" data-sortable="true" data-sort-name="control" data-sort-order="desc" scope="col">
+                Control</th>
               <th scope="col">Value</th>
               <th scope="col">Action</th>
             </tr>
