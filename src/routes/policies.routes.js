@@ -1,7 +1,20 @@
 const policyCtrl = require('../controllers/policy.controller');
 
-
 const routes = [
+    {
+        /// envia informacion de la api al usuario
+        url: '/api/v1',
+        method: 'GET',
+        handler: policyCtrl.getApiV1,
+    },
+    {
+        /// Trae pantalla de API Documentation ********/
+        url: '/docs/api',
+        method: 'GET',
+        handler: function (request, reply) {
+            reply.view('./src/views/docs.ejs', {})
+        }
+    },
     {
         //esta es la ruta que trae todas las políticas y las muestra.
         url: '/policies',
@@ -33,10 +46,12 @@ const routes = [
         handler: policyCtrl.updatePolicy,
     },
     {
-        ///trae pantalla de new policy
+        ///trae pantalla de new policy ********/
         url: '/newpolicy',
         method: 'GET',
-        handler: policyCtrl.newPolicy,
+        handler: function (request, reply) {
+            reply.view('./src/views/newpolicy.html', {})
+        }
     },
     {
         ///trae pantalla de edit policy

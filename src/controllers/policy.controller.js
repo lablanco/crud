@@ -1,5 +1,11 @@
 const Policy = require("../models/policy.model");
 
+// Obtiene todas las politicas como una API
+const getApiV1 = async (request, reply) => {
+    const t = await Policy.find();
+    return reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send({ Policy: t });
+};
+
 // Obtiene todas las politicas
 const getPolicies = async (request, reply) => {
     const t = await Policy.find();
@@ -54,11 +60,6 @@ const updatePolicy = async (request, reply) => {
     return reply.view('./src/views/main.ejs', { text: t });
 };
 
-// trae pantalla de newpolicy
-const newPolicy = async (request, reply) => {
-    return reply.view('./src/views/newpolicy.html', {});
-};
-
 // trae pantalla de editpolicy
 const editPolicy = async (request, reply) => {
     const t = await Policy.findOne({ _id: request.params.id }).lean();
@@ -66,11 +67,11 @@ const editPolicy = async (request, reply) => {
 };
 
 module.exports = {
+    getApiV1,
     getPolicies,
     getPolicy,
     createPolicy,
     deletePolicy,
     updatePolicy,
-    newPolicy,
     editPolicy
 }
