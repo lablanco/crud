@@ -2,7 +2,15 @@ const Policy = require("../models/policy.model");
 
 // Obtiene todas las politicas como una API
 const getApiV1 = async (request, reply) => {
-    const t = await Policy.find();
+    const t = await Policy.find({}, {
+        '_id': 0,
+        'system': 1,
+        'policies': 1,
+        'policy': 1,
+        'requirement': 1,
+        'description': 1,
+        'value': 1
+    });
     return reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send({ Policy: t });
 };
 
